@@ -7,12 +7,77 @@
         <link rel = "stylesheet" href = "style.css"/>
     </head>
     <body>
-        <h1>Drawing App</h1>
-        <p>Click and drag to draw.</p>
+        <div class = "page-shell">
+            <div class = "background-shape shape-one"></div>
+            <div class = "background-shape shape-two"></div>
+            <div class = "background-shape shape-three"></div>
 
-        <canvas id = "drawingCanvas"></canvas>
-        
-        <button id = "clearBtn">Clear</button>
+            <main class = "app-card">
+                <section class = "hero">
+                    <h1>Sketch Something Fun</h1>
+                    <p>Click and drag across the canvas to doodle, scribble, and make a little chaos.</p>
+                </section>
+
+                <section class = "canvas-panel">
+                    <div class = "canvas-header">
+                        <div class = "badge-row">
+                            <div class = "control-chip control-chip-color">
+                                <div class = "control-heading">
+                                    <label for="colorPicker">Choose color</label>
+                                    <span class = "control-helper">Pick a shade, then keep your recents close.</span>
+                                </div>
+                                <div class = "color-picker-row">
+                                    <input type="color" id="colorPicker" value="#000000">
+                                    <span class = "color-picker-caption">Current color</span>
+                                </div>
+                                <span class = "recent-colors-label">Recent colors</span>
+                                <div id="recentColors"></div>
+                            </div>
+
+                            <div class = "control-chip control-chip-range">
+                                <div class = "control-heading">
+                                    <label for="brushSize">Brush tools</label>
+                                    <span class = "control-helper">Adjust your brush or switch to erasing when you need a clean reset.</span>
+                                </div>
+                                <div class = "tool-stack">
+                                    <div class = "tool-group">
+                                        <div class = "tool-row">
+                                            <span class = "tool-label">Brush size</span>
+                                            <button id = "brushToggle" class = "tool-toggle" type = "button">Brush</button>
+                                        </div>
+                                        <div class = "range-wrap">
+                                            <div class = "range-cone" aria-hidden = "true"></div>
+                                            <input type="range" id="brushSize" min="1" max="20" step="0.5" value="10.5">
+                                        </div>
+                                    </div>
+
+                                    <div class = "tool-group tool-group-eraser">
+                                        <div class = "tool-row">
+                                            <span class = "tool-label">Eraser size</span>
+                                            <button id = "eraserToggle" class = "tool-toggle" type = "button">Eraser</button>
+                                        </div>
+                                        <div class = "range-wrap">
+                                            <div class = "range-cone range-cone-eraser" aria-hidden = "true"></div>
+                                            <input type="range" id="eraserSize" min="6" max="40" step="0.5" value="23">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "canvas-frame">
+                        <canvas id = "drawingCanvas"></canvas>
+                    </div>
+
+                    <div class = "canvas-footer">
+                        <button id = "saveBtn" class = "action-btn action-btn-save">Save Drawing</button>
+                        <button id = "clearBtn" class = "action-btn action-btn-clear">Clear Canvas</button>
+                    </div>
+
+                </section>
+            </main>
+        </div>
 
         <script src = "script.js"></script>
     </body>
